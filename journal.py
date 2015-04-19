@@ -66,6 +66,13 @@ def create():
     
     return redirect(url_for('show', id=entry.id))
 
+@app.route("/<int:id>", methods=["DELETE"])
+@app.route("/<int:id>/delete", methods=["POST"])
+def delete(id):
+    entry = Entry.get(id=id)
+    entry.delete().execute()
+    return redirect(url_for('index')) 
+
 @app.route('/<int:id>')
 def show(id):
     entry = Entry.get(id=id)

@@ -1,5 +1,8 @@
 <html>
     <body>
+        <form action="{{ url_for('delete', id=entry.id) }}" method="post">
+            <input type="submit" value="Delete Entry">
+        </form>
         <p>{{ entry.text }}</p>
     </body>
 </html>
